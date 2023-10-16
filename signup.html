@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <title>Sign Up</title>
+    
+    <script>
+      $(document).ready(function(){
+  $("button").click(function(){
+    $("p").toggle();
+  });
+});
+        function validateForm() {
+            const emailInput = document.getElementById('email');
+            const usernameInput = document.getElementById('username');
+            const passwordInput = document.getElementById('password');
+            const reenterPasswordInput = document.getElementById('reenter-password');
+
+            const email = emailInput.value;
+            const username = usernameInput.value;
+            const password = passwordInput.value;
+            const reenterPassword = reenterPasswordInput.value;
+
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            const passwordPattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+
+            if (!emailPattern.test(email)) {
+                alert('Please enter a valid email address.');
+                return false;
+            }
+
+            if (username.trim() === '') {
+                alert('Please enter a username.');
+                return false;
+            }
+
+            if (!passwordPattern.test(password)) {
+                alert('Enter a valid password.');
+                return false;
+            }
+
+            if (password !== reenterPassword) {
+                alert('Passwords do not match.');
+                return false;
+            }
+
+            alert('Form submitted successfully!');
+            return true;
+        }
+    </script>
+    <style> 
+
+        #panel, #flip {
+          padding: 5px;
+          text-align: center;
+          background-color: rgb(75, 13, 210);
+          border: solid 1px yellow;
+        }
+        
+        #panel {
+          padding: 50px;
+          display: none;
+        }
+        body {
+            background:radial-gradient(#fff,#fefdfd);
+            background-repeat: no-repeat;
+            background-size: 1190px 300px;
+            display: flex;
+            justify-content: center; 
+            align-items: center; 
+            height: 100vh;
+            margin: 80;
+        }
+        .container {
+            text-align: center; /* Center the contents horizontally */
+            background-color: rgba(14, 47, 214, 0.8); /* Add a semi-transparent background */
+            padding: 20px;
+            border-radius: 40px;
+            box-shadow: 3px 4px 5px rgba(74, 74, 177, 0.3);
+            max-width: 400px;
+            width: 100%;
+        }
+        form {
+            padding: 20px;
+            background-color: rgb(0, 255, 51);
+            border-radius: 40px;
+            box-shadow: 3px 4px 5px rgba(74, 74, 177, 0.3);
+            max-width: 300px;
+            width: 100%;
+        }
+
+        form label,
+        form input {
+            display: block;
+            margin-bottom: 5px;
+            width: 100%;
+        }
+        .form-group button {
+            background-color: #270acc;
+            color: #eee2e2;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+        
+        .form-group button:hover {
+            background-color: #ef440b;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+    <button>Sign up</button>   
+    <form action="login.html" onsubmit="return validateForm();">
+        <form action="login.html" onsubmit="return onSubmitForm();">
+            <h1 align="center"></h1> 
+    
+            <label for="email">Email Id</label>
+            <input type="email" id="email" name="email" placeholder="Personal email">
+    
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" placeholder="Your username">
+    
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Your password..">
+    
+            <label for="reenter-password">Reenter Password</label>
+            <input type="password" id="reenter-password" name="reenter password" placeholder="Re-enter password.."><br>
+    
+            <div class="form-group">
+                <a href="login.html"><button type="submit">Register</a></button>
+            </div>
+        
+    </form>
+</div>
+</body>
+</html>
